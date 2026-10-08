@@ -12,7 +12,15 @@ services:
       - spirisynq
     ports:
       - "7447:7447"
-    command: ["-l", "tcp/0.0.0.0:7447"]
+    # Each sim robot runs the Mu's own zenoh-router app, whose host-mode
+    # router lands on this network. Routers don't connect to each other by
+    # default, so this one does the scouting and joins every robot's router
+    # as it appears; the robots stay configured exactly like real Mus.
+    command:
+      - -l
+      - tcp/0.0.0.0:7447
+      - --cfg
+      - 'scouting/multicast/autoconnect:{router:["router","peer"],peer:["router","peer"]}'
 
 networks:
   spirisynq:
