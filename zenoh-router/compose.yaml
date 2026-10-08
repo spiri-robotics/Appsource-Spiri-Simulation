@@ -1,0 +1,19 @@
+# zenoh-router: the router every simulated thing meets at. Gazebo's
+# gz-transport, each sim robot's SpiriSynq, and anything joining from the LAN
+# (a real Mu's router, a developer's native Gazebo client) connect here.
+# Install this first; the other apps join the `spirisynq` network it creates
+# and find it by name.
+services:
+  zenoh-router:
+    # Same 1.x line as the libzenohc Gazebo Jetty links against.
+    image: eclipse/zenoh:1.8.0
+    restart: unless-stopped
+    networks:
+      - spirisynq
+    ports:
+      - "7447:7447"
+    command: ["-l", "tcp/0.0.0.0:7447"]
+
+networks:
+  spirisynq:
+    name: spirisynq

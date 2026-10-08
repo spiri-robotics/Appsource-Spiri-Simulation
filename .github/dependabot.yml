@@ -1,0 +1,7 @@
+# Bump pinned image versions as SpiriDevelopmentKit publishes releases.
+version: 2
+updates:
+  - package-ecosystem: docker-compose
+    directories: ["/*"]
+    schedule:
+      interval: daily
