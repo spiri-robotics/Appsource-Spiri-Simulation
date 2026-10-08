@@ -6,7 +6,7 @@
 services:
   zenoh-router:
     # Same 1.x line as the libzenohc Gazebo Jetty links against.
-    image: eclipse/zenoh:1.8.0
+    image: eclipse/zenoh:1.10.1
     restart: unless-stopped
     networks:
       - spirisynq
