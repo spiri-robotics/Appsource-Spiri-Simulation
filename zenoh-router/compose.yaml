@@ -5,8 +5,8 @@
 # and find it by name.
 services:
   zenoh-router:
-    # Same 1.x line as the libzenohc Gazebo Jetty links against.
-    image: eclipse/zenoh:1.8.0
+    # The Mu's version, so the appliance's router and every robot's are alike.
+    image: eclipse/zenoh:1.10.1
     restart: unless-stopped
     networks:
       - spirisynq
