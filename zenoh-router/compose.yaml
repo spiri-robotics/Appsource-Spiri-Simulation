@@ -6,7 +6,7 @@
 services:
   zenoh-router:
     # The Mu's version, so the appliance's router and every robot's are alike.
-    image: eclipse/zenoh:1.10.1
+    image: eclipse/zenoh:1.10.2
     restart: unless-stopped
     networks:
       - spirisynq
